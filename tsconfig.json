@@ -1,0 +1,21 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "target": "ES6",
+    "sourceMap": true,
+    "module": "ESNext",
+    "esModuleInterop": true,
+    "strict": true,
+    // "allowJs": true,
+    "jsx": "preserve",
+    "lib": ["ESNext", "DOM"], // 编译时用的库
+    "types": ["node"],
+    "rootDir": ".",
+    // "outDir": "./build",
+    "moduleResolution": "node"
+  },
+  "exclude": [
+    "node_modules",
+    "dist/**"
+  ]
+}

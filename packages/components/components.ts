@@ -1,0 +1,1 @@
+export { PIcon } from "./icon";

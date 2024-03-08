@@ -1,0 +1,19 @@
+{
+  "name": "portable-ui",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "pnpm -C examples dev"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@portable-ui/components": "workspace:^",
+    "@portable-ui/theme-chalk": "workspace:^",
+    "@portable-ui/utils": "workspace:^",
+    "typescript": "^5.4.2",
+    "vue": "^3.4.21"
+  }
+}

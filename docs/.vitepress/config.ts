@@ -29,7 +29,10 @@ export default {
       "/components/": [
         {
           text: "基本",
-          items: [{ text: "Button 按钮", link: "/components/button/" }],
+          items: [
+            { text: "Button 按钮", link: "/components/button/" },
+            { text: "Layout 布局", link: "/components/layout/" },
+          ],
         },
       ],
     },

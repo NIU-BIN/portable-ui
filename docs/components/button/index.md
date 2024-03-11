@@ -44,4 +44,11 @@
       <p-button type="warning" size="mini">warning</p-button>
       <p-button type="danger" size="mini">danger</p-button>
     </p>
+    
 </div>
+
+    <!-- <p class="space">
+      <p-button type="primary" icon="ri-questionnaire-line"></p-button>
+      <p-button type="info" icon="ri-radar-fill"></p-button>
+      <p-button type="warning" icon="ri-numbers-fill"></p-button>
+    </p> -->

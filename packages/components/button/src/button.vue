@@ -18,7 +18,6 @@
 </template>
 
 <script setup lang="ts">
-import "../style";
 import { Props } from "./button";
 
 defineProps(Props);

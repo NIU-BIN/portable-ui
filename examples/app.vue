@@ -1,6 +1,8 @@
 <template>
   <div>
-    <p-icon color="red" :size="18" />
+    <p-icon :size="20" name="chart-bar" />
+    <p-icon :size="20" name="data-view" />
+    <p-icon :size="20" name="copy" />
     <p-row>
       <p-col :span="10">
         <div class="a"></div>

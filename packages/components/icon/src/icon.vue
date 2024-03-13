@@ -1,5 +1,5 @@
 <template>
-  <i class="p-icon" :style="style"></i>
+  <i :class="['p-icon', `icon-${name}`]" :style="style"></i>
 </template>
 <script lang="ts">
 export default {

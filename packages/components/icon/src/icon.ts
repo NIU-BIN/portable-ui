@@ -1,6 +1,9 @@
 import type { ExtractPropTypes } from "vue";
 
 export const Props = {
+  name: {
+    type: String,
+  },
   size: {
     type: Number,
   },

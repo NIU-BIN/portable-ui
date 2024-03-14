@@ -119,9 +119,35 @@
         <div class="a"></div>
       </p-col>
     </p-row>
+    <!-- message -->
+    <p-row :gutter="10">
+      <p-button type="success" @click="openMessage('success')">
+        success
+      </p-button>
+      <p-button type="info" @click="openMessage('info')">info</p-button>
+      <p-button type="warning" @click="openMessage('warning')">
+        warning
+      </p-button>
+      <p-button type="danger" @click="openMessage('error')">error</p-button>
+    </p-row>
+    <!-- message showClose  -->
+    <p-row :gutter="10">
+      <p-button type="success" @click="openMessage('success', true)">
+        success
+      </p-button>
+    </p-row>
   </div>
 </template>
-<script></script>
+<script setup>
+import { PMessage } from "@portable-ui/components";
+const openMessage = (type, showClose) => {
+  PMessage({
+    type,
+    message: "这是一条消息",
+    showClose: showClose,
+  });
+};
+</script>
 <style lang="less">
 .a,
 .b {

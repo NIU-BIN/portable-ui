@@ -1,5 +1,7 @@
 import type { ExtractPropTypes } from "vue";
 
+const BUTTON_SIZE = ["", "small", "mini"];
+
 export const Props = {
   type: {
     type: String,
@@ -8,11 +10,15 @@ export const Props = {
   size: {
     type: String,
     default: "",
+    validator(value: string) {
+      return BUTTON_SIZE.includes(value);
+    },
   },
   plain: {
     type: Boolean,
     default: false,
   },
+  // 圆角
   round: {
     type: Boolean,
     default: false,

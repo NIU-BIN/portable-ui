@@ -37,13 +37,14 @@
   min-width: 40px;
   padding: 8px 15px;
   font-size: 18px;
-  border-radius: 3px;
+  border-radius: 4px;
 }
-.p-button.is_round {
+.p-button.is-round {
+  box-sizing: border-box;
   border-radius: 20px;
 }
 
-.p-button.is_disabled {
+.p-button.is-disabled {
   opacity: 0.6;
   cursor: not-allowed;
 }
@@ -101,14 +102,14 @@
   }
 }
 
-.is_plain {
+.is-plain {
   box-shadow: 0 0 0 transparent;
   &:hover {
     box-shadow: 0 0 0 transparent;
   }
 }
 
-.p-button__default.is_plain {
+.p-button__default.is-plain {
   &:hover,
   &:focus {
     background: transparent;
@@ -116,7 +117,7 @@
     color: var(--default);
   }
 }
-.p-button__primary.is_plain {
+.p-button__primary.is-plain {
   color: var(--primary);
   background: transparent;
   border-color: var(--primary);
@@ -133,7 +134,7 @@
     box-shadow: 0 0 0 transparent;
   }
 }
-.p-button__success.is_plain {
+.p-button__success.is-plain {
   color: var(--success);
   background: transparent;
   border-color: var(--success);
@@ -150,7 +151,7 @@
     box-shadow: 0 0 0 transparent;
   }
 }
-.p-button__warning.is_plain {
+.p-button__warning.is-plain {
   color: var(--warning);
   background: transparent;
   border-color: var(--warning);
@@ -167,7 +168,7 @@
     box-shadow: 0 0 0 transparent;
   }
 }
-.p-button__info.is_plain {
+.p-button__info.is-plain {
   color: var(--info);
   background: transparent;
   border-color: var(--info);
@@ -184,7 +185,7 @@
     box-shadow: 0 0 0 transparent;
   }
 }
-.p-button__danger.is_plain {
+.p-button__danger.is-plain {
   color: var(--danger);
   background: transparent;
   border-color: var(--danger);

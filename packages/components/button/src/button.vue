@@ -5,12 +5,13 @@
       `${size && 'p-button--' + size}`,
       `p-button__${type}`,
       { 'p-button--icon': icon },
-      { is_plain: plain },
-      { is_disabled: disabled },
+      { 'is-plain': plain },
+      { 'is-disabled': disabled },
+      { 'is-round': round },
     ]"
     :disabled="disabled"
   >
-    <i v-if="icon" :class="icon"></i>
+    <i v-if="icon" :class="['p-icon', `icon-${icon}`]"></i>
     <span v-if="$slots.default">
       <slot />
     </span>

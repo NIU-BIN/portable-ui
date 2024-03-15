@@ -1,6 +1,7 @@
 <template>
   <div>
     <!-- button -->
+    <h3>Button</h3>
     <p-row :gutter="10">
       <p-button>default</p-button>
       <p-button type="primary">primary</p-button>
@@ -10,6 +11,7 @@
       <p-button type="danger">danger</p-button>
     </p-row>
     <!--  button plain -->
+    <h3>Button plain</h3>
     <p-row :gutter="10">
       <p-button type="primary" plain>primary</p-button>
       <p-button type="success" plain>success</p-button>
@@ -18,6 +20,7 @@
       <p-button type="danger" plain>danger</p-button>
     </p-row>
     <!--  button round -->
+    <h3>Button round</h3>
     <p-row :gutter="10">
       <p-button round>default</p-button>
       <p-button type="primary" round>primary</p-button>
@@ -27,6 +30,7 @@
       <p-button type="danger" round>danger</p-button>
     </p-row>
     <!--  button disabled -->
+    <h3>Button disabled</h3>
     <p-row :gutter="10">
       <p-button type="primary" disabled>primary</p-button>
       <p-button type="success" disabled>success</p-button>
@@ -35,6 +39,7 @@
       <p-button type="danger" disabled>danger</p-button>
     </p-row>
     <!--  button size -->
+    <h3>Button size</h3>
     <p-row :gutter="10">
       <p-button type="primary">primary</p-button>
       <p-button type="success">success</p-button>
@@ -57,6 +62,7 @@
       <p-button type="danger" size="mini">danger</p-button>
     </p-row>
     <!--  button icon -->
+    <h3>Button icon</h3>
     <p-row :gutter="10">
       <p-button type="primary" icon="chart-bar"></p-button>
       <p-button type="info" icon="data-view"></p-button>
@@ -64,10 +70,12 @@
     </p-row>
     <br />
     <!-- icon -->
+    <h3>Icon</h3>
     <p-icon :size="20" name="chart-bar" />
     <p-icon :size="20" name="data-view" />
     <p-icon :size="20" name="copy" />
     <!-- layout -->
+    <h3>Layout</h3>
     <p-row>
       <p-col :span="10">
         <div class="a"></div>
@@ -120,6 +128,7 @@
       </p-col>
     </p-row>
     <!-- message -->
+    <h3>Message</h3>
     <p-row :gutter="10">
       <p-button type="success" @click="openMessage('success')">
         success
@@ -131,15 +140,49 @@
       <p-button type="danger" @click="openMessage('error')">error</p-button>
     </p-row>
     <!-- message showClose  -->
+    <h3>Message showClose</h3>
     <p-row :gutter="10">
       <p-button type="success" @click="openMessage('success', true)">
         success
       </p-button>
     </p-row>
+    <!-- input -->
+    <h3>Input</h3>
+    <p-input v-model="inputValue1" placeholder="请输入" />
+    <h3>Input password</h3>
+    <p-input v-model="inputValue1" type="password" placeholder="请输入" />
+    <h3>Input disabled</h3>
+    <p-input v-model="inputValue1" disabled placeholder="请输入" />
+    <h3>Input clearable</h3>
+    <p-input
+      v-model="inputValue1"
+      type="password"
+      clearable
+      placeholder="请输入"
+    />
+    <h3>Input 带图标</h3>
+    <p-input v-model="inputValue1">
+      <template #pre-icon>
+        <i class="p-icon icon-user"></i>
+      </template>
+    </p-input>
+    <br />
+    <p-input v-model="inputValue1">
+      <template #suffix-icon>
+        <i class="p-icon icon-setting"></i>
+      </template>
+    </p-input>
   </div>
 </template>
 <script setup>
 import { PMessage } from "@portable-ui/components";
+import { reactive, toRefs } from "vue";
+
+const state = reactive({
+  inputValue1: "",
+});
+
+const { inputValue1 } = toRefs(state);
 const openMessage = (type, showClose) => {
   PMessage({
     type,

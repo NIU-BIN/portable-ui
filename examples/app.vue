@@ -174,14 +174,37 @@
     </p-input>
     <!-- select -->
     <h3>Select</h3>
-    <p-select :option="options" v-model="selectValue"></p-select>
+    <p-select :option="options1" v-model="selectValue1"></p-select>
+    <h3>Select 禁用项</h3>
+    <p-select
+      :option="options2"
+      v-model="selectValue2"
+      style="width: 240px"
+    ></p-select>
+    <h3>Select search</h3>
+    <p-select
+      :option="options2"
+      search
+      v-model="selectValue2"
+      style="width: 240px"
+    ></p-select>
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
   </div>
 </template>
 <script setup>
 import { PMessage } from "@portable-ui/components";
 import { reactive, toRefs } from "vue";
 
-const options = [
+const options1 = [
   {
     label: "option1",
     value: "1",
@@ -200,12 +223,33 @@ const options = [
   },
 ];
 
+const options2 = [
+  {
+    label: "option1",
+    value: "1",
+  },
+  {
+    label: "option2",
+    value: "2",
+    disabled: true,
+  },
+  {
+    label: "option3",
+    value: "3",
+  },
+  {
+    label: "option4",
+    value: "4",
+  },
+];
+
 const state = reactive({
   inputValue1: "",
-  selectValue: "2",
+  selectValue1: "2",
+  selectValue2: "1",
 });
 
-const { inputValue1, selectValue } = toRefs(state);
+const { inputValue1, selectValue1, selectValue2 } = toRefs(state);
 const openMessage = (type, showClose) => {
   PMessage({
     type,

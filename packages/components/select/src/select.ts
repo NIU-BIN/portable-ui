@@ -3,6 +3,7 @@ import type { ExtractPropTypes, PropType } from "vue";
 export type TypeOptionItem = {
   label: string;
   value: string | number;
+  disabled?: boolean;
 };
 
 export const Props = {
@@ -18,6 +19,10 @@ export const Props = {
     default: "请选择",
   },
   disabled: {
+    type: Boolean,
+    default: false,
+  },
+  search: {
     type: Boolean,
     default: false,
   },

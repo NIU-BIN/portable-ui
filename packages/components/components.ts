@@ -5,3 +5,4 @@ export { PButton } from "./button";
 export { PMessage } from "./message";
 export { PInput } from "./input";
 export { PSelect } from "./select";
+export { PDialog } from "./dialog";

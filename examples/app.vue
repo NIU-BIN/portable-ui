@@ -13,6 +13,7 @@
     <!--  button plain -->
     <h3>Button plain</h3>
     <p-row :gutter="10">
+      <!-- <p-button plain>default</p-button> -->
       <p-button type="primary" plain>primary</p-button>
       <p-button type="success" plain>success</p-button>
       <p-button type="info" plain>info</p-button>
@@ -189,15 +190,33 @@
       style="width: 240px"
     ></p-select>
     <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
+    <!-- dialog -->
+    <h3>Dialog</h3>
+    <p-button @click="showDialog1 = true"> success </p-button>
+    <p-dialog v-model="showDialog1" width="500px" @ok="dialogOK">
+      噫吁嚱，危乎高哉！ 蜀道之难，难于上青天！ 蚕丛及鱼凫，开国何茫然！
+      尔来四万八千岁，不与秦塞通人烟。 西当太白有鸟道，可以横绝峨眉巅。
+      地崩山摧壮士死，然后天梯石栈相钩连。
+      上有六龙回日之高标，下有冲波逆折之回川。
+      黄鹤之飞尚不得过，猿猱欲度愁攀援。 青泥何盘盘，百步九折萦岩峦。
+      扪参历井仰胁息，以手抚膺坐长叹。
+    </p-dialog>
+    <h3>Dialog 异步</h3>
+    <p-button @click="showDialog2 = true"> 异步关闭 </p-button>
+    <p-dialog
+      v-model="showDialog2"
+      width="500px"
+      :before-close="beforeClose"
+      @ok="dialogOK"
+    >
+      噫吁嚱，危乎高哉！ 蜀道之难，难于上青天！ 蚕丛及鱼凫，开国何茫然！
+      尔来四万八千岁，不与秦塞通人烟。 西当太白有鸟道，可以横绝峨眉巅。
+      地崩山摧壮士死，然后天梯石栈相钩连。
+      上有六龙回日之高标，下有冲波逆折之回川。
+      黄鹤之飞尚不得过，猿猱欲度愁攀援。 青泥何盘盘，百步九折萦岩峦。
+      扪参历井仰胁息，以手抚膺坐长叹。
+      <p v-show="showCloseTips" style="color: orange">2秒钟后关闭...</p>
+    </p-dialog>
   </div>
 </template>
 <script setup>
@@ -247,15 +266,39 @@ const state = reactive({
   inputValue1: "",
   selectValue1: "2",
   selectValue2: "1",
+  showDialog1: false,
+  showDialog2: false,
+  showCloseTips: false,
 });
 
-const { inputValue1, selectValue1, selectValue2 } = toRefs(state);
+const {
+  inputValue1,
+  selectValue1,
+  selectValue2,
+  showDialog1,
+  showDialog2,
+  showCloseTips,
+} = toRefs(state);
 const openMessage = (type, showClose) => {
   PMessage({
     type,
     message: "这是一条消息",
     showClose: showClose,
   });
+};
+
+const dialogOK = () => {
+  PMessage({
+    type: "success",
+    message: "关闭后的回调",
+  });
+};
+const beforeClose = (done) => {
+  state.showCloseTips = true;
+  setTimeout(() => {
+    state.showCloseTips = false;
+    done();
+  }, 2000);
 };
 </script>
 <style lang="less">

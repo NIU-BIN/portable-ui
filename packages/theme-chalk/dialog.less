@@ -1,0 +1,46 @@
+.p-mask {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 999;
+  // transition: all 0.35s;
+}
+.p-dialog {
+  position: fixed;
+  padding: 16px 20px;
+  box-sizing: border-box;
+  z-index: 1000;
+  top: 12vh;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: var(--p-bg-color);
+  border-radius: 8px;
+  .p-dialog__header {
+    position: relative;
+    font-size: 16px;
+    .p-dialog__close {
+      position: absolute;
+      top: 0;
+      right: 0;
+      color: var(--p-icon-fill-color);
+      cursor: pointer;
+      &:hover {
+        color: var(--p-text-color);
+      }
+    }
+  }
+  .p-dialog__content {
+    padding: 14px 0;
+    font-size: 14px;
+    color: var(--p-text-color);
+  }
+  .p-dialog__footer_btn_group {
+    text-align: right;
+    .p-button {
+      margin-left: 10px;
+    }
+  }
+}

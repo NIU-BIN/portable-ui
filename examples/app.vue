@@ -217,6 +217,13 @@
       扪参历井仰胁息，以手抚膺坐长叹。
       <p v-show="showCloseTips" style="color: orange">2秒钟后关闭...</p>
     </p-dialog>
+    <!-- checkbox -->
+    <h3>Checkbox</h3>
+    <p-checkbox label="option1" v-model="checkbox1"></p-checkbox>
+    <p-checkbox label="option2" v-model="checkbox2">🎉1212</p-checkbox>
+    <h3>Checkbox disabled</h3>
+    <p-checkbox label="option1" v-model="checkbox1" disabled></p-checkbox>
+    <p-checkbox label="option2" v-model="checkbox2" disabled>🎉1212</p-checkbox>
   </div>
 </template>
 <script setup>
@@ -269,6 +276,8 @@ const state = reactive({
   showDialog1: false,
   showDialog2: false,
   showCloseTips: false,
+  checkbox1: false,
+  checkbox2: false,
 });
 
 const {
@@ -278,6 +287,8 @@ const {
   showDialog1,
   showDialog2,
   showCloseTips,
+  checkbox1,
+  checkbox2,
 } = toRefs(state);
 const openMessage = (type, showClose) => {
   PMessage({
@@ -290,7 +301,7 @@ const openMessage = (type, showClose) => {
 const dialogOK = () => {
   PMessage({
     type: "success",
-    message: "关闭后的回调",
+    message: "确认后的回调",
   });
 };
 const beforeClose = (done) => {

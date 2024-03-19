@@ -6,3 +6,4 @@ export { PMessage } from "./message";
 export { PInput } from "./input";
 export { PSelect } from "./select";
 export { PDialog } from "./dialog";
+export { PCheckbox } from "./checkbox";

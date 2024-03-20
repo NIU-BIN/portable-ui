@@ -224,6 +224,12 @@
     <h3>Checkbox disabled</h3>
     <p-checkbox label="option1" v-model="checkbox1" disabled></p-checkbox>
     <p-checkbox label="option2" v-model="checkbox2" disabled>🎉1212</p-checkbox>
+    <h3>Checkbox group</h3>
+    {{ checkboxGroup }}
+    <p-checkbox-group v-model="checkboxGroup">
+      <p-checkbox label="option1" />
+      <p-checkbox label="option2">🎉1212</p-checkbox>
+    </p-checkbox-group>
   </div>
 </template>
 <script setup>
@@ -278,6 +284,7 @@ const state = reactive({
   showCloseTips: false,
   checkbox1: false,
   checkbox2: false,
+  checkboxGroup: ["option1"],
 });
 
 const {
@@ -289,6 +296,7 @@ const {
   showCloseTips,
   checkbox1,
   checkbox2,
+  checkboxGroup,
 } = toRefs(state);
 const openMessage = (type, showClose) => {
   PMessage({

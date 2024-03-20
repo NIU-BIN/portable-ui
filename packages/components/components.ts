@@ -7,3 +7,4 @@ export { PInput } from "./input";
 export { PSelect } from "./select";
 export { PDialog } from "./dialog";
 export { PCheckbox } from "./checkbox";
+export { PCheckboxGroup } from "./checkbox-group";

@@ -1,13 +1,14 @@
 <template>
+  {{ groupData && groupData.groupModelValue }}
   <label
     class="p-checkbox"
-    :class="{ 'is-checked': modelValue, 'is-disabled': disabled }"
+    :class="{ 'is-checked': isCheck, 'is-disabled': disabled }"
   >
     <input
       type="checkbox"
       class="p-checkbox__inner"
       :name="label"
-      :value="modelValue"
+      :value="isCheck"
       :disabled="disabled"
       @change="handleChange"
     />
@@ -21,18 +22,25 @@
     </span>
   </label>
 </template>
-<script lang="ts">
-export default {
-  name: "p-checkbox",
-};
-</script>
 <script setup lang="ts">
-import { useSlots } from "vue";
+import { computed, inject, useSlots } from "vue";
 import { Props } from "./checkbox";
+
+defineOptions({
+  name: "p-checkbox",
+});
 
 const slot = useSlots();
 const props = defineProps(Props);
 const emit = defineEmits(["update:modelValue", "change"]);
+
+const groupData = inject("groupData", undefined) as any;
+
+const isCheck = computed(() => {
+  return groupData
+    ? (groupData.modelValueRef.value as string[]).includes(props.label)
+    : props.modelValue;
+});
 
 const handleChange = (e: Event) => {
   const value = (e.target as HTMLInputElement).checked;
@@ -41,5 +49,6 @@ const handleChange = (e: Event) => {
     label: props.label,
     value,
   });
+  groupData && groupData.groupModelChange(props.label);
 };
 </script>

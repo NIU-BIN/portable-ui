@@ -230,6 +230,16 @@
       <p-checkbox label="option1" />
       <p-checkbox label="option2">🎉1212</p-checkbox>
     </p-checkbox-group>
+    <!-- carousel -->
+    <h3>Carousel</h3>
+    <div style="width: 500px; height: 260px">
+      <p-carousel>
+        <p-carousel-item>1</p-carousel-item>
+        <p-carousel-item>2</p-carousel-item>
+        <p-carousel-item>3</p-carousel-item>
+        <p-carousel-item>4</p-carousel-item>
+      </p-carousel>
+    </div>
   </div>
 </template>
 <script setup>
@@ -334,5 +344,14 @@ const beforeClose = (done) => {
 .space {
   display: flex;
   gap: 20px;
+}
+
+.p-carousel {
+  .p-carousel-item:nth-child(2n) {
+    background-color: aquamarine;
+  }
+  .p-carousel-item:nth-child(2n + 1) {
+    background-color: pink;
+  }
 }
 </style>

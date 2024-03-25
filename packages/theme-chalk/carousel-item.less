@@ -1,0 +1,49 @@
+// .p-carousel-item {
+//   position: absolute;
+//   display: inline-block;
+//   width: 100%;
+//   height: 260px;
+// }
+
+.p-carousel-item {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.next-enter-active,
+.next-leave-active,
+.pre-enter-active,
+.pre-leave-active {
+  transition: all 0.35s linear;
+}
+
+.next-enter-active {
+  transform: translateX(100%);
+}
+.next-enter-to {
+  transform: translateX(0);
+}
+
+.next-leave-active {
+  transform: translateX(0);
+}
+.next-leave-to {
+  transform: translateX(-100%);
+}
+
+.pre-enter-active {
+  transform: translateX(-100%);
+}
+.pre-enter-to {
+  transform: translateX(0);
+}
+
+.pre-leave-active {
+  transform: translateX(0);
+}
+.pre-leave-to {
+  transform: translateX(100%);
+}

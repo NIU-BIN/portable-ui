@@ -8,3 +8,5 @@ export { PSelect } from "./select";
 export { PDialog } from "./dialog";
 export { PCheckbox } from "./checkbox";
 export { PCheckboxGroup } from "./checkbox-group";
+export { PCarousel } from "./carousel";
+export { PCarouselItem } from "./carousel-item";

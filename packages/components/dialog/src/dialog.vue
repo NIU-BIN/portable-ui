@@ -1,9 +1,9 @@
 <template>
   <teleport to="#p-popper-container">
-    <transition name="fade" appear>
+    <transition name="fade">
       <div class="p-mask" v-show="showDialog"></div>
     </transition>
-    <transition name="scale" appear>
+    <transition name="scale">
       <div
         class="p-dialog"
         v-show="showDialog"

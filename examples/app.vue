@@ -240,6 +240,16 @@
         <p-carousel-item>4</p-carousel-item>
       </p-carousel>
     </div>
+    <!-- calendar -->
+    <h3>Calendar</h3>
+    <p-calendar>
+      <template #2024-03-27>
+        <div v-for="item in eventList" :key="item.id" class="event_item">
+          <i :class="item.type" />
+          <span>{{ item.text }}</span>
+        </div>
+      </template>
+    </p-calendar>
   </div>
 </template>
 <script setup>
@@ -282,6 +292,24 @@ const options2 = [
   {
     label: "option4",
     value: "4",
+  },
+];
+
+const eventList = [
+  {
+    id: 1,
+    type: "success",
+    text: "洗脸",
+  },
+  {
+    id: 2,
+    type: "warning",
+    text: "刷牙",
+  },
+  {
+    id: 3,
+    type: "success",
+    text: "干饭",
   },
 ];
 
@@ -352,6 +380,27 @@ const beforeClose = (done) => {
   }
   .p-carousel-item:nth-child(2n + 1) {
     background-color: pink;
+  }
+}
+
+.event_item {
+  margin-top: 6px;
+  display: flex;
+  gap: 6px;
+  align-items: center;
+  font-size: 14px;
+  color: #666;
+  i {
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+  }
+  .success {
+    background-color: var(--p-success);
+  }
+  .warning {
+    background-color: var(--p-warning);
   }
 }
 </style>

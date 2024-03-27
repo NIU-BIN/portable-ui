@@ -1,5 +1,6 @@
 import type { App } from "vue";
 import { SFCInstallWithContext } from "./typescript";
+export * from "./calendar";
 
 export const withInstall = <T>(comp: T, name?: string) => {
   (comp as SFCInstallWithContext<T>).install = (app: App) => {

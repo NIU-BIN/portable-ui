@@ -1,0 +1,109 @@
+.p-calendar {
+  padding: 20px 10px;
+  .p-calendar-box {
+    border: 1px solid var(--p-border-color);
+    border-radius: 6px;
+    overflow: hidden;
+  }
+  .p-calendar__header {
+    margin-top: 10px;
+    padding: 12px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .p-calendar__month {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+  .p-calendar__month_pre,
+  .calendar__month_next {
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    color: var(--p-icon-fill-color);
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.2s;
+    &:hover {
+      background-color: var(--p-hover-color);
+    }
+  }
+  .p-calendar__month_current {
+    // color: var(--p-text-color);
+    color: #333;
+    font-size: 18px;
+  }
+  .p-calendar__week {
+    margin-top: 6px;
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    justify-items: center;
+    color: var(--p-text-color);
+    .p-calendar__week_cell {
+      padding: 10px 0;
+      font-size: 14px;
+    }
+  }
+  .p-calendar__day {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 1px;
+    background-color: var(--p-border-color);
+    border-top: 1px solid var(--p-border-color);
+    .p-calendar__day_cell {
+      position: relative;
+      padding: 6px 30px 6px 6px;
+      height: 130px;
+      // border-right: 1px solid var(--p-border-color);
+      // border-top: 1px solid var(--p-border-color);
+      box-sizing: border-box;
+      background-color: #fff;
+      cursor: pointer;
+    }
+    .p-calendar__day_cell_container {
+      padding: 0 30px 0 6px;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      overflow-y: auto;
+      z-index: 4;
+      box-sizing: border-box;
+    }
+    .p-calendar__day_cell_container::-webkit-scrollbar {
+      width: 6px;
+    }
+
+    .p-calendar__day_cell_container::-webkit-scrollbar-track {
+      background: transparent; /* 颜色 */
+    }
+
+    .p-calendar__day_cell_container::-webkit-scrollbar-thumb {
+      background: #b9b9b9; /* 滑块颜色 */
+      border-radius: 4px;
+    }
+    .p-calendar__day_cell.active {
+      // z-index: 2;
+      border: 1px solid lighten(#5e72e4, 20%);
+      box-shadow: 0 0 14px var(--p-primary-lighten) inset;
+    }
+    .p-calendar__day_cell:not(.active):hover {
+      background-color: lighten(#5e72e4, 33%);
+    }
+    .p-calendar__day_cell > .p-calendar__day_value {
+      position: absolute;
+      right: 10px;
+      top: 10px;
+      color: #000;
+      font-size: 14px;
+      z-index: 2;
+    }
+    .not_current_month {
+      opacity: 0.2;
+    }
+  }
+}

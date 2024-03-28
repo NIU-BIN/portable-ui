@@ -1,15 +1,13 @@
 <template>
-  <transition name="slideY-fade" @after-leave="afterLeave">
-    <div class="p-message" :class="`p-message__${type}`">
-      <i :class="`p-icon icon-${MESSAGE_ICON_NAME[type]}`"></i>
-      <span class="p-message__text">{{ message }}</span>
-      <i
-        class="p-icon icon-close-bold p-message_close_icon"
-        v-if="showClose"
-        @click="close"
-      ></i>
-    </div>
-  </transition>
+  <div class="p-message" :class="`p-message__${type}`">
+    <i :class="`p-icon icon-${MESSAGE_ICON_NAME[type]}`"></i>
+    <span class="p-message__text">{{ message }}</span>
+    <i
+      class="p-icon icon-close-bold p-message_close_icon"
+      v-if="showClose"
+      @click="close"
+    ></i>
+  </div>
 </template>
 
 <script setup>
@@ -28,10 +26,6 @@ const MESSAGE_ICON_NAME = {
 };
 
 const instance = getCurrentInstance();
-
-const afterLeave = () => {
-  instance.vnode.el.parentElement?.removeChild(instance.vnode.el);
-};
 
 const close = () => {
   emit("close", instance.vnode.el.parentElement);

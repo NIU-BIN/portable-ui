@@ -11,3 +11,4 @@ export { PCheckboxGroup } from "./checkbox-group";
 export { PCarousel } from "./carousel";
 export { PCarouselItem } from "./carousel-item";
 export { PCalendar } from "./calendar";
+export { PTooltip } from "./tooltip";

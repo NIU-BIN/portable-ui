@@ -325,6 +325,22 @@
     <p-tooltip content="我是文字提示我是文字提示我是文字提示" :width="60">
       <div>文字提示</div>
     </p-tooltip>
+    <!-- steps -->
+    <h3>Steps</h3>
+    <p-steps :active="active">
+      <p-step title="第一步" description="打开微信扫一扫" />
+      <p-step title="第二步" description="添加好友" />
+      <p-step title="第三步" description="选择我的头像" />
+      <p-step title="第四步" description="转款1000万" />
+    </p-steps>
+    <p-button type="primary" size="mini" @click="nextStep">下一步</p-button>
+    <h3>Steps icon</h3>
+    <p-steps :active="active">
+      <p-step title="起床" icon="notification" />
+      <p-step title="炒股" icon="data-view" />
+      <p-step title="加仓" icon="good" />
+      <p-step title="亏大了" icon="cry" />
+    </p-steps>
   </div>
 </template>
 <script setup>
@@ -398,6 +414,7 @@ const state = reactive({
   checkbox1: false,
   checkbox2: false,
   checkboxGroup: ["option1"],
+  active: 0,
 });
 
 const {
@@ -410,6 +427,7 @@ const {
   checkbox1,
   checkbox2,
   checkboxGroup,
+  active,
 } = toRefs(state);
 const openMessage = (type, showClose) => {
   PMessage({
@@ -431,6 +449,13 @@ const beforeClose = (done) => {
     state.showCloseTips = false;
     done();
   }, 2000);
+};
+
+const nextStep = () => {
+  active.value++;
+  if (active.value > 4) {
+    active.value = 0;
+  }
 };
 </script>
 <style lang="less">

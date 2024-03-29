@@ -77,7 +77,6 @@ watch(
 
 const handleMouseEnter = (e: Event) => {
   clearCloseClock();
-  console.log("e: ", e.target);
   const { offsetHeight, offsetWidth } = e.target as HTMLDivElement;
   const { top, left } = (e.target as HTMLDivElement).getBoundingClientRect();
   show.value = true;
@@ -93,7 +92,6 @@ const handleMouseEnter = (e: Event) => {
       props.width || tooltipRef.value?.offsetWidth || 0,
       tooltipRef.value?.offsetHeight || 0
     );
-    console.log("props.width", props.width);
     tooltipStyle.value = {
       left: L + "px",
       top: T + "px",

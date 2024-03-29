@@ -14,3 +14,5 @@ export { PCalendar } from "./calendar";
 export { PTooltip } from "./tooltip";
 export { PSteps } from "./steps";
 export { PStep } from "./step";
+export { PCollapse } from "./collapse";
+export { PCollapseItem } from "./collapse-item";

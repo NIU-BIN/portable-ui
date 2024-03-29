@@ -1,0 +1,42 @@
+.p-collapse-item {
+  padding: 0 10px;
+  border-top: 1px solid var(--p-border-color);
+  cursor: pointer;
+  .p-collapse-item__button {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 48px;
+    font-size: 14px;
+    color: #333;
+    .p-collapse-item__title {
+      user-select: none;
+    }
+    .p-collapse-item__icon {
+      font-size: 14px;
+      transition: all 0.3s ease;
+    }
+  }
+  .p-collapse-item__body {
+    font-size: 13px;
+    color: var(--p-text-color);
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows 0.3s ease;
+    .p-collapse-item__reference {
+      overflow: hidden;
+    }
+    .p-collapse-item__content {
+      margin-bottom: 20px;
+    }
+  }
+
+  &.active {
+    .p-collapse-item__icon {
+      transform: rotateZ(90deg);
+    }
+    .p-collapse-item__body {
+      grid-template-rows: 1fr;
+    }
+  }
+}

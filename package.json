@@ -23,6 +23,7 @@
     "vue": "^3.4.21"
   },
   "devDependencies": {
+    "@types/node": "^20.12.2",
     "vitepress": "1.0.0-rc.45"
   }
 }

@@ -18,12 +18,12 @@
 
 <script setup lang="ts">
 import { inject, ComputedRef, ref, computed } from "vue";
-import { Props } from "./collapse-item";
+import type { Props } from "./collapse-item.ts";
 
 defineOptions({
   name: "p-collapse-item",
 });
-const props = defineProps(Props);
+const props = defineProps<Props>();
 
 const opened = inject<ComputedRef<string[]>>("opened");
 const change = inject<(newSelected: string[]) => void>("change");
@@ -35,7 +35,7 @@ const handleClick = () => {
   // show.value = !show.value;
   const oldSelect = JSON.parse(JSON.stringify(opened?.value));
   let newSelected = oldSelect.includes(props.name)
-    ? oldSelect.filter((item) => item !== props.name)
+    ? oldSelect.filter((item: any) => item !== props.name)
     : [...oldSelect, props.name];
   if (accordion?.value) {
     newSelected = [props.name];
@@ -43,3 +43,4 @@ const handleClick = () => {
   change && change(newSelected);
 };
 </script>
+./collapse-item.js

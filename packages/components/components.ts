@@ -17,3 +17,4 @@ export { PStep } from "./step";
 export { PCollapse } from "./collapse";
 export { PCollapseItem } from "./collapse-item";
 export { PTree } from "./tree";
+export { PSwitch } from "./switch";

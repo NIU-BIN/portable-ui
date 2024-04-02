@@ -440,7 +440,27 @@
     </p-collapse>
     <!-- tree -->
     <h3>Tree</h3>
+    <p-tree :data="treeData"></p-tree>
+    <h3>Tree showCheckbox</h3>
     <p-tree showCheckbox :data="treeData"></p-tree>
+    <!-- switch -->
+    <h3>Switch</h3>
+    <p>
+      <p-switch v-model="switchValue" />
+    </p>
+    <p>
+      <p-switch
+        v-model="switchValue"
+        active-text="Open"
+        inactive-text="Close"
+      />
+    </p>
+    <p-switch
+      v-model="switchValue"
+      inline-prompt
+      active-text="Open"
+      inactive-text="Close"
+    />
   </div>
 </template>
 <script setup>
@@ -518,6 +538,7 @@ const state = reactive({
   active: 0,
   activeNames1: [],
   activeNames2: [],
+  switchValue: false,
 });
 
 const {
@@ -533,6 +554,7 @@ const {
   active,
   activeNames1,
   activeNames2,
+  switchValue,
 } = toRefs(state);
 
 const openMessage = (type, showClose) => {

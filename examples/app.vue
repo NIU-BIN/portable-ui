@@ -438,11 +438,15 @@
         </div>
       </p-collapse-item>
     </p-collapse>
+    <!-- tree -->
+    <h3>Tree</h3>
+    <p-tree showCheckbox :data="treeData"></p-tree>
   </div>
 </template>
 <script setup>
 import { PMessage } from "@portable-ui/components";
 import { reactive, toRefs } from "vue";
+import { treeData } from "./data.ts";
 
 const options1 = [
   {

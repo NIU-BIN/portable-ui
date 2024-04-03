@@ -534,6 +534,24 @@
         inactive-text="Close"
       />
     </p>
+    <!-- table -->
+    <h3>Table</h3>
+    <p-table :column="column" :data="tableData"> </p-table>
+    <h3>Table 自定义列</h3>
+    <p-table :column="column" :data="tableData">
+      <template #industryType="{ row, $index }">
+        $index:{{ $index }}, row:{{ row }}
+      </template>
+    </p-table>
+    <!--  -->
+    <h3>Table 固定表头</h3>
+    <p-table :column="column" :data="tableData" height="200">
+      <template #industryType="{ row, $index }">
+        $index:{{ $index }}, row:{{ row }}
+      </template>
+    </p-table>
+    <h3>Table 带斑马纹表格</h3>
+    <p-table :column="column" :data="tableData" stripe height="200"> </p-table>
   </div>
 </template>
 <script setup>
@@ -595,6 +613,75 @@ const eventList = [
     id: 3,
     type: "success",
     text: "干饭",
+  },
+];
+
+const column = [
+  {
+    key: "customerName",
+    label: "企业名称",
+    width: "140",
+  },
+  {
+    key: "powerGridName",
+    label: "电调区域",
+    width: "140",
+  },
+  {
+    key: "districtName",
+    label: "行政区域",
+    width: "160",
+  },
+  {
+    key: "industryType",
+    label: "行业分类",
+    // width: "160",
+  },
+  {
+    key: "startTime",
+    label: "开始日期",
+    width: "140",
+  },
+  {
+    key: "endTime",
+    label: "结束日期",
+    width: "140",
+  },
+  {
+    key: "contractStatus",
+    label: "合同状态",
+    width: "140",
+  },
+];
+
+const tableData = [
+  {
+    customerName: "宁夏区域",
+    powerGridName: "111",
+    districtName: "222",
+    industryType: "333",
+    startTime: "2023-05-06",
+  },
+  {
+    customerName: "宁夏区域",
+    powerGridName: "111",
+    districtName: "222",
+    industryType: "333",
+    startTime: "2023-05-06",
+  },
+  {
+    customerName: "宁夏区域",
+    powerGridName: "111",
+    districtName: "222",
+    industryType: "333",
+    startTime: "2023-05-06",
+  },
+  {
+    customerName: "宁夏区域",
+    powerGridName: "111",
+    districtName: "222",
+    industryType: "333",
+    startTime: "2023-05-06",
   },
 ];
 

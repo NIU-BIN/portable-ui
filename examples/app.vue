@@ -552,6 +552,9 @@
     </p-table>
     <h3>Table 带斑马纹表格</h3>
     <p-table :column="column" :data="tableData" stripe height="200"> </p-table>
+    <!-- color picker -->
+    <h3>Color Picker</h3>
+    <p-color-picker></p-color-picker>
   </div>
 </template>
 <script setup>

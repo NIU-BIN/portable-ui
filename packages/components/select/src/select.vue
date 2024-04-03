@@ -91,7 +91,7 @@ const handleClick = (e: Event) => {
 };
 
 const keywordsChange = (e: Event) => {
-  console.log((e.target as HTMLInputElement).value);
+  // console.log((e.target as HTMLInputElement).value);
   // click();
 };
 

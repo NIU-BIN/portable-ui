@@ -36,7 +36,6 @@ defineOptions({
 const props = withDefaults(defineProps<SwitchProps>(), {
   type: "primary",
 });
-console.log("props: ", props);
 
 const emit = defineEmits<{
   "update:modelValue": [value: boolean];

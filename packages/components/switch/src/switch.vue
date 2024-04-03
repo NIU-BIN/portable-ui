@@ -1,5 +1,5 @@
 <template>
-  <div class="p-switch">
+  <div :class="`p-switch p-switch__${type}`">
     <div
       class="p-switch__label"
       :class="{ active: !modelValue }"
@@ -33,7 +33,9 @@ import type { SwitchProps } from "./switch";
 defineOptions({
   name: "p-switch",
 });
-const props = defineProps<SwitchProps>();
+const props = withDefaults(defineProps<SwitchProps>(), {
+  type: "primary",
+});
 console.log("props: ", props);
 
 const emit = defineEmits<{

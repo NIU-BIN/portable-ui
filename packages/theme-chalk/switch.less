@@ -5,12 +5,13 @@
   .p-switch__label {
     font-size: 14px;
     font-weight: 500;
-    color: var(--p-text-color);
+    // color: var(--p-text-color);
   }
   .p-switch__label.active {
     color: var(--p-primary);
   }
 }
+
 .p-switch__core {
   position: relative;
   display: inline-flex;
@@ -49,5 +50,46 @@
   }
   .p-switch__inner {
     padding: 0 calc(16px + 2px) 0 4px;
+  }
+}
+
+.p-switch__primary {
+  .p-switch__label.active {
+    color: var(--p-primary);
+  }
+  .p-switch__core.is-checked {
+    background-color: var(--p-primary);
+  }
+}
+.p-switch__success {
+  .p-switch__label.active {
+    color: var(--p-success);
+  }
+  .p-switch__core.is-checked {
+    background-color: var(--p-success);
+  }
+}
+.p-switch__info {
+  .p-switch__label.active {
+    color: var(--p-info);
+  }
+  .p-switch__core.is-checked {
+    background-color: var(--p-info);
+  }
+}
+.p-switch__warning {
+  .p-switch__label.active {
+    color: var(--p-warning);
+  }
+  .p-switch__core.is-checked {
+    background-color: var(--p-warning);
+  }
+}
+.p-switch__danger {
+  .p-switch__label.active {
+    color: var(--p-danger);
+  }
+  .p-switch__core.is-checked {
+    background-color: var(--p-danger);
   }
 }

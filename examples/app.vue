@@ -448,6 +448,7 @@
     <p>
       <p-switch v-model="switchValue" />
     </p>
+    <h3>Switch 文字描述</h3>
     <p>
       <p-switch
         v-model="switchValue"
@@ -455,12 +456,84 @@
         inactive-text="Close"
       />
     </p>
-    <p-switch
-      v-model="switchValue"
-      inline-prompt
-      active-text="Open"
-      inactive-text="Close"
-    />
+    <p>
+      <p-switch
+        v-model="switchValue"
+        inline-prompt
+        active-text="Open"
+        inactive-text="Close"
+      />
+    </p>
+    <h3>Switch 不同色系</h3>
+    <p style="display: flex; gap: 30px">
+      <p-switch
+        v-model="switchValue"
+        type="primary"
+        active-text="Open"
+        inactive-text="Close"
+      />
+      <p-switch
+        v-model="switchValue"
+        type="success"
+        active-text="Open"
+        inactive-text="Close"
+      />
+      <p-switch
+        v-model="switchValue"
+        type="info"
+        active-text="Open"
+        inactive-text="Close"
+      />
+      <p-switch
+        v-model="switchValue"
+        type="warning"
+        active-text="Open"
+        inactive-text="Close"
+      />
+      <p-switch
+        v-model="switchValue"
+        type="danger"
+        active-text="Open"
+        inactive-text="Close"
+      />
+    </p>
+    <p style="display: flex; gap: 6px">
+      <p-switch
+        v-model="switchValue"
+        type="primary"
+        inline-prompt
+        active-text="Open"
+        inactive-text="Close"
+      />
+      <p-switch
+        v-model="switchValue"
+        type="success"
+        inline-prompt
+        active-text="Open"
+        inactive-text="Close"
+      />
+      <p-switch
+        v-model="switchValue"
+        type="info"
+        inline-prompt
+        active-text="Open"
+        inactive-text="Close"
+      />
+      <p-switch
+        v-model="switchValue"
+        type="warning"
+        inline-prompt
+        active-text="Open"
+        inactive-text="Close"
+      />
+      <p-switch
+        v-model="switchValue"
+        type="danger"
+        inline-prompt
+        active-text="Open"
+        inactive-text="Close"
+      />
+    </p>
   </div>
 </template>
 <script setup>

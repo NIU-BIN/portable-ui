@@ -8,5 +8,5 @@ export type Node = {
 
 export type TreeNodeProps = {
   node: Node;
-  showCheckbox: boolean;
+  showCheckbox?: boolean;
 };

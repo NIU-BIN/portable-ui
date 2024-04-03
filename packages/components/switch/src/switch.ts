@@ -1,15 +1,6 @@
 export type SwitchProps = {
   modelValue: boolean;
-  inlinePrompt: {
-    type: boolean;
-    require: false;
-  };
-  activeText: {
-    type: string;
-    require: false;
-  };
-  inactiveText: {
-    type: string;
-    require: false;
-  };
+  inlinePrompt?: boolean;
+  activeText?: string;
+  inactiveText?: string;
 };

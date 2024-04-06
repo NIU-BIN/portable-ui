@@ -37,15 +37,6 @@ importers:
         specifier: 1.0.0-rc.45
         version: 1.0.0-rc.45(@algolia/client-search@4.22.1)(@types/node@20.12.2)(less@4.2.0)(search-insights@2.13.0)(typescript@5.4.2)
 
-  examples:
-    devDependencies:
-      '@vitejs/plugin-vue':
-        specifier: ^5.0.4
-        version: 5.0.4(vite@5.1.5)(vue@3.4.21)
-      vite:
-        specifier: ^5.1.5
-        version: 5.1.5
-
   packages/components: {}
 
   packages/theme-chalk: {}
@@ -1105,41 +1096,6 @@ packages:
 
   /undici-types@5.26.5:
     resolution: {integrity: sha512-JlCMO+ehdEIKqlFxk6IfVoAUVmgz7cU7zD/h9XZ0qzeosSHmUJVOzSQvvYSYWXkFXC+IfLKSIffhv0sVZup6pA==}
-    dev: true
-
-  /vite@5.1.5:
-    resolution: {integrity: sha512-BdN1xh0Of/oQafhU+FvopafUp6WaYenLU/NFoL5WyJL++GxkNfieKzBhM24H3HVsPQrlAqB7iJYTHabzaRed5Q==}
-    engines: {node: ^18.0.0 || >=20.0.0}
-    hasBin: true
-    peerDependencies:
-      '@types/node': ^18.0.0 || >=20.0.0
-      less: '*'
-      lightningcss: ^1.21.0
-      sass: '*'
-      stylus: '*'
-      sugarss: '*'
-      terser: ^5.4.0
-    peerDependenciesMeta:
-      '@types/node':
-        optional: true
-      less:
-        optional: true
-      lightningcss:
-        optional: true
-      sass:
-        optional: true
-      stylus:
-        optional: true
-      sugarss:
-        optional: true
-      terser:
-        optional: true
-    dependencies:
-      esbuild: 0.19.12
-      postcss: 8.4.35
-      rollup: 4.12.1
-    optionalDependencies:
-      fsevents: 2.3.3
     dev: true
 
   /vite@5.1.5(@types/node@20.12.2)(less@4.2.0):

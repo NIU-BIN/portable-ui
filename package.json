@@ -14,9 +14,11 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@highlightjs/vue-plugin": "^2.1.0",
     "@portable-ui/components": "workspace:^",
     "@portable-ui/theme-chalk": "workspace:^",
     "@portable-ui/utils": "workspace:^",
+    "highlight.js": "^11.9.0",
     "less": "^4.2.0",
     "less-loader": "^12.2.0",
     "typescript": "^5.4.2",

@@ -1,4 +1,12 @@
+<script setup>
+import demo1 from './demo1.vue'
+</script>
+
 # Button
+
+<preview comp-name="button" demo-name="demo1">
+  <demo1/>
+</preview>
 
 <div>
   <p-row :gutter="10">

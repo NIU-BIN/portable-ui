@@ -80,7 +80,7 @@ const handleClick = () => {
     }
   }
   .code {
-    border-top: 1px solid #f2f2f2;
+    border-top: 1px solid #efefef;
     display: grid;
     grid-template-rows: 0fr;
     transition: grid-template-rows 0.3s ease;

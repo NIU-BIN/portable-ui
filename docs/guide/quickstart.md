@@ -1,6 +1,6 @@
 # 快速开始
 
-本节将介绍如何在项目中使用 Tass UI.
+本节将介绍如何在项目中使用 Portable UI.
 
 ## 用法
 
@@ -12,10 +12,10 @@
 // main.ts
 import { createApp } from 'vue';
 import App from './App.vue';
-import TassUI from 'tass-ui';
-import 'tass-ui/es/style.css';
+import PortableUI from 'portable-ui';
+import 'portable-ui/es/style.css';
 const app = createApp(App);
-app.use(TassUI).mount('#app');
+app.use(PortableUI).mount('#app');
 ```
 
 # 开始使用

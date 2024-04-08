@@ -1,14 +1,14 @@
 const isProd = process.env.NODE_ENV === "production";
 export default {
   base: isProd ? "/portable-ui/" : "",
-  title: "一个Vue3 UI框架",
-  titleTemplate: ":title - Portable UI",
+  title: "Portable UI",
+  // title: "vite",
+  // titleTemplate: ":title - Portable UI",
   description: "一个Vue3 UI框架",
   lastUpdated: true,
   head: [["link", { rel: "icon", href: "http://niubin.site/logo.jpg" }]],
   themeConfig: {
     logo: "http://niubin.site/logo.jpg",
-    siteTitle: false,
     nav: [
       { text: "指南", link: "/guide/install" },
       { text: "组件", link: "/components/button/" },
@@ -41,6 +41,8 @@ export default {
             { text: "Checkbox 多选框", link: "/components/checkbox/" },
             { text: "Input 输入框", link: "/components/input/" },
             { text: "Select 选择器", link: "/components/select/" },
+            { text: "ColorPicker 取色器", link: "/components/color-picker/" },
+            { text: "Switch 开关", link: "/components/switch/" },
           ],
         },
         {
@@ -49,6 +51,9 @@ export default {
             { text: "Calendar 日历", link: "/components/calendar/" },
             { text: "Carousel 走马灯", link: "/components/carousel/" },
             { text: "Steps 步骤条", link: "/components/steps/" },
+            { text: "Collapse 折叠面板", link: "/components/collapse/" },
+            { text: "Tree 树形控件", link: "/components/tree/" },
+            { text: "Table 表格", link: "/components/table/" },
           ],
         },
         {

@@ -555,6 +555,11 @@
     <!-- color picker -->
     <h3>Color Picker</h3>
     <p-color-picker v-model="color"></p-color-picker>
+    <div class="infinite-scroll-box" v-infinite-scroll="load">
+      <div class="infinite-scroll-item" v-for="item in infiniteCount">
+        {{ item }}
+      </div>
+    </div>
   </div>
 </template>
 <script setup>
@@ -703,6 +708,7 @@ const state = reactive({
   activeNames2: [],
   switchValue: false,
   color: "rgb(255,0,0)",
+  infiniteCount: 10,
 });
 
 const {
@@ -720,6 +726,7 @@ const {
   activeNames2,
   switchValue,
   color,
+  infiniteCount,
 } = toRefs(state);
 
 const openMessage = (type, showClose) => {
@@ -749,6 +756,11 @@ const nextStep = () => {
   if (active.value > 4) {
     active.value = 0;
   }
+};
+
+const load = () => {
+  state.infiniteCount += 2;
+  console.log("到底了");
 };
 </script>
 <style lang="less">
@@ -794,6 +806,21 @@ const nextStep = () => {
   }
   .warning {
     background-color: var(--p-warning);
+  }
+}
+
+.infinite-scroll-box {
+  border: 1px solid #d3d3d3;
+  width: 500px;
+  height: 300px;
+  overflow-y: auto;
+  gap: 6px;
+  .infinite-scroll-item {
+    margin: 10px;
+    height: 40px;
+    line-height: 40px;
+    background-color: rgb(180, 206, 247);
+    text-align: center;
   }
 }
 </style>

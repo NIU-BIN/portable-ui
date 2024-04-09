@@ -20,3 +20,4 @@ export { PTree } from "./tree";
 export { PSwitch } from "./switch";
 export { PTable } from "./table";
 export { PColorPicker } from "./color-picker";
+export { PInfiniteSrcoll } from "./infinite-scroll";

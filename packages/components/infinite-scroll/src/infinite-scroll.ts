@@ -1,14 +1,10 @@
-import { nextTick } from "process";
-
-type ContainerInfo = {
-  containerHeight: number;
-  scrollHeight: number;
-};
+import { nextTick } from "vue";
 
 type EventItem = {
   uid: string;
+  dom: HTMLElement;
   callback: () => void;
-} & ContainerInfo;
+};
 
 const generateBrowserId = (length: number) => {
   const result = [];
@@ -48,21 +44,21 @@ class EventEmitter {
     this.event = [];
   }
 
-  on(uid: string, callback: () => void, info: ContainerInfo) {
+  on(uid: string, dom: HTMLElement, callback: () => void) {
     if (!this.event.some((v) => v.uid === uid)) {
       this.event.push({
         uid,
-        ...info,
+        dom,
         callback,
       });
     }
   }
 
-  change(uid: string, callback: () => void, info: ContainerInfo) {
+  change(uid: string, dom: HTMLElement, callback: () => void) {
     if (!this.event.some((v) => v.uid === uid)) {
       this.event.push({
         uid,
-        ...info,
+        dom,
         callback,
       });
     }
@@ -80,25 +76,26 @@ class EventEmitter {
 
 const monitor = new EventEmitter();
 
-const onScroll = (e: Event, info: ContainerInfo, callback: () => void) => {
-  const { containerHeight, scrollHeight } = info;
-  if ((e.target as HTMLElement).scrollTop + containerHeight >= scrollHeight) {
-    callback();
-    nextTick(() => {});
+const onScroll = (e: Event, uid: string, callback: () => void) => {
+  const targetEvent = monitor.get(uid);
+
+  if (targetEvent) {
+    nextTick(() => {
+      const { scrollTop, clientHeight, scrollHeight } = targetEvent.dom;
+      // console.log("dom", scrollTop + clientHeight, scrollHeight);
+      if (scrollTop + clientHeight >= scrollHeight) {
+        callback();
+      }
+    });
   }
 };
 
 const bindingFun = (el: any, binding: any) => {
   const uid = getGenerateBrowserId();
   const callback = binding.value;
-  const info = {
-    containerHeight: el.clientHeight,
-    scrollHeight: el.scrollHeight,
-  };
-
   el.setAttribute("data-infinite", uid);
-  monitor.on(uid, callback, info);
-  el.addEventListener("scroll", (e: Event) => onScroll(e, info, callback));
+  monitor.on(uid, el, callback);
+  el.addEventListener("scroll", (e: Event) => onScroll(e, uid, callback));
 };
 
 export default {
@@ -110,17 +107,9 @@ export default {
     const targetEvent = monitor.get(uid);
     if (targetEvent) {
       el.removeEventListener("scroll", (e: Event) =>
-        onScroll(
-          e,
-          {
-            containerHeight: targetEvent.containerHeight,
-            scrollHeight: targetEvent.scrollHeight,
-          },
-          targetEvent.callback
-        )
+        onScroll(e, uid, targetEvent.callback)
       );
     }
-
     monitor.off(uid);
   },
 };

@@ -555,10 +555,14 @@
     <!-- color picker -->
     <h3>Color Picker</h3>
     <p-color-picker v-model="color"></p-color-picker>
+    <!-- infinite scroll -->
+    <h3>InfiniteScroll</h3>
     <div class="infinite-scroll-box" v-infinite-scroll="load">
       <div class="infinite-scroll-item" v-for="item in infiniteCount">
         {{ item }}
       </div>
+      <p v-if="scrollLoading">Loading...</p>
+      <p v-if="scrollNoMore">No more</p>
     </div>
   </div>
 </template>
@@ -709,6 +713,8 @@ const state = reactive({
   switchValue: false,
   color: "rgb(255,0,0)",
   infiniteCount: 10,
+  scrollLoading: false,
+  scrollNoMore: false,
 });
 
 const {
@@ -727,6 +733,8 @@ const {
   switchValue,
   color,
   infiniteCount,
+  scrollLoading,
+  scrollNoMore,
 } = toRefs(state);
 
 const openMessage = (type, showClose) => {
@@ -759,8 +767,17 @@ const nextStep = () => {
 };
 
 const load = () => {
-  state.infiniteCount += 2;
-  console.log("到底了");
+  console.log("load");
+  state.scrollLoading = true;
+
+  setTimeout(() => {
+    if (state.infiniteCount > 30) {
+      state.scrollNoMore = true;
+    } else {
+      state.infiniteCount += 6;
+    }
+    state.scrollLoading = false;
+  }, 2000);
 };
 </script>
 <style lang="less">
@@ -815,12 +832,18 @@ const load = () => {
   height: 300px;
   overflow-y: auto;
   gap: 6px;
+  box-sizing: border-box;
+
   .infinite-scroll-item {
     margin: 10px;
     height: 40px;
     line-height: 40px;
     background-color: rgb(180, 206, 247);
     text-align: center;
+  }
+  p {
+    text-align: center;
+    font-size: 14px;
   }
 }
 </style>

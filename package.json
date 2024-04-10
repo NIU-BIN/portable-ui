@@ -18,6 +18,7 @@
     "@portable-ui/components": "workspace:^",
     "@portable-ui/theme-chalk": "workspace:^",
     "@portable-ui/utils": "workspace:^",
+    "async-validator": "^4.2.5",
     "highlight.js": "^11.9.0",
     "less": "^4.2.0",
     "less-loader": "^12.2.0",

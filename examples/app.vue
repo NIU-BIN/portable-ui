@@ -564,11 +564,36 @@
       <p v-if="scrollLoading">Loading...</p>
       <p v-if="scrollNoMore">No more</p>
     </div>
+    <!-- form -->
+    <h3>Form</h3>
+    <p-form
+      :rules="rules"
+      :model="ruleForm"
+      label-width="120px"
+      ref="ruleFormRef"
+    >
+      <p-form-item label="Activity name" prop="name">
+        <p-input v-model="inputValue1" placeholder="请输入" />
+      </p-form-item>
+      <p-form-item label="Activity zone" prop="region">
+        <p-select
+          :option="options1"
+          placeholder="请选择"
+          v-model="selectValue1"
+        ></p-select>
+      </p-form-item>
+      <p-form-item label="Address" prop="address">
+        <p-input v-model="inputValue1" placeholder="please input address" />
+      </p-form-item>
+      <p-form-item>
+        <p-button @click.prevent="submitForm(ruleFormRef)">Submit</p-button>
+      </p-form-item>
+    </p-form>
   </div>
 </template>
 <script setup>
 import { PMessage } from "@portable-ui/components";
-import { reactive, toRefs } from "vue";
+import { reactive, toRefs, ref } from "vue";
 import { treeData } from "./data.ts";
 
 const options1 = [
@@ -697,6 +722,22 @@ const tableData = [
   },
 ];
 
+const rules = {
+  name: [
+    { required: true, message: "Please input Activity name", trigger: "blur" },
+    { min: 3, max: 5, message: "Length should be 3 to 5", trigger: "blur" },
+  ],
+  region: [
+    {
+      required: true,
+      message: "Please select Activity zone",
+      trigger: "change",
+    },
+  ],
+};
+
+const ruleFormRef = ref();
+
 const state = reactive({
   inputValue1: "",
   selectValue1: "2",
@@ -715,6 +756,10 @@ const state = reactive({
   infiniteCount: 10,
   scrollLoading: false,
   scrollNoMore: false,
+  ruleForm: {
+    name: "",
+    region: "",
+  },
 });
 
 const {
@@ -735,6 +780,7 @@ const {
   infiniteCount,
   scrollLoading,
   scrollNoMore,
+  ruleForm,
 } = toRefs(state);
 
 const openMessage = (type, showClose) => {
@@ -778,6 +824,17 @@ const load = () => {
     }
     state.scrollLoading = false;
   }, 2000);
+};
+
+const submitForm = async (formEl) => {
+  if (!formEl) return;
+  await formEl.validate((valid, fields) => {
+    if (valid) {
+      console.log("submit!");
+    } else {
+      console.log("error submit!", fields);
+    }
+  });
 };
 </script>
 <style lang="less">

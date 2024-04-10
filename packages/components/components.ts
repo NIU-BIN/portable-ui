@@ -21,3 +21,5 @@ export { PSwitch } from "./switch";
 export { PTable } from "./table";
 export { PColorPicker } from "./color-picker";
 export { PInfiniteSrcoll } from "./infinite-scroll";
+export { PForm } from "./form";
+export { PFormItem } from "./form-item";

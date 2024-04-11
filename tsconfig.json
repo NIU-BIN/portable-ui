@@ -12,7 +12,8 @@
     "types": ["node"],
     "rootDir": ".",
     // "outDir": "./build",
-    "moduleResolution": "node"
+    "moduleResolution": "node",
+    "forceConsistentCasingInFileNames": false
   },
   "exclude": [
     "node_modules",

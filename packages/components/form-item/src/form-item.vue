@@ -24,12 +24,7 @@
 <script setup lang="ts">
 import { computed, ComputedRef, inject } from "vue";
 import type { FormItemProps } from "./form-item";
-
-interface ErrorItem {
-  field: string;
-  fieldValue: any;
-  message: string;
-}
+import { ValidateError } from "async-validator";
 
 defineOptions({
   name: "p-form-item",
@@ -39,7 +34,9 @@ const props = defineProps<FormItemProps>();
 
 const labelWidth = inject("label-width") as string;
 const rules = inject("rules") as { [key: string]: any };
-const errorCollection = inject("error-collection") as ComputedRef<ErrorItem[]>;
+const errorCollection = inject("error-collection") as ComputedRef<
+  ValidateError[]
+>;
 
 const isRequired = computed(() => {
   const currentRules = props.prop && rules[props.prop];

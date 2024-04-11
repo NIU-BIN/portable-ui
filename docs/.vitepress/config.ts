@@ -43,6 +43,7 @@ export default {
             { text: "Select 选择器", link: "/components/select/" },
             { text: "ColorPicker 取色器", link: "/components/color-picker/" },
             { text: "Switch 开关", link: "/components/switch/" },
+            { text: "Form 表单", link: "/components/form/" },
           ],
         },
         {
@@ -54,7 +55,15 @@ export default {
             { text: "Collapse 折叠面板", link: "/components/collapse/" },
             { text: "Tree 树形控件", link: "/components/tree/" },
             { text: "Table 表格", link: "/components/table/" },
+            {
+              text: "Infinite Scroll 无限滚动",
+              link: "/components/infinite-scroll/",
+            },
           ],
+        },
+        {
+          text: "Navigation 导航",
+          items: [{ text: "Steps 步骤条", link: "/components/steps/" }],
         },
         {
           text: "Feedback 反馈组件",

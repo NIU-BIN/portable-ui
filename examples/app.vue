@@ -573,13 +573,13 @@
       ref="ruleFormRef"
     >
       <p-form-item label="Activity name" prop="name">
-        <p-input v-model="inputValue1" placeholder="请输入" />
+        <p-input v-model="ruleForm.name" placeholder="请输入" />
       </p-form-item>
       <p-form-item label="Activity zone" prop="region">
         <p-select
           :option="options1"
           placeholder="请选择"
-          v-model="selectValue1"
+          v-model="ruleForm.region"
         ></p-select>
       </p-form-item>
       <p-form-item label="Address" prop="address">
@@ -587,6 +587,7 @@
       </p-form-item>
       <p-form-item>
         <p-button @click.prevent="submitForm(ruleFormRef)">Submit</p-button>
+        <p-button @click.prevent="resetForm(ruleFormRef)">Reset</p-button>
       </p-form-item>
     </p-form>
   </div>
@@ -758,7 +759,7 @@ const state = reactive({
   scrollNoMore: false,
   ruleForm: {
     name: "",
-    region: "",
+    region: "1",
   },
 });
 
@@ -836,6 +837,15 @@ const submitForm = async (formEl) => {
     }
   });
 };
+
+const resetForm = (formEl) => {
+  if (!formEl) return;
+  formEl.resetFields();
+};
+
+defineExpose({
+  ruleForm,
+});
 </script>
 <style lang="less">
 .a,

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <p-button @click="showDialog = true"> success </p-button>
+    <p-button @click="showDialog = true"> open </p-button>
     <p-dialog v-model="showDialog" width="500px" @ok="dialogOK">
       噫吁嚱，危乎高哉！ 蜀道之难，难于上青天！ 蚕丛及鱼凫，开国何茫然！
       尔来四万八千岁，不与秦塞通人烟。 西当太白有鸟道，可以横绝峨眉巅。

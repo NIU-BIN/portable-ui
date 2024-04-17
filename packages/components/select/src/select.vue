@@ -11,6 +11,9 @@
         :disabled="disabled"
         readonly
         class="p-input__inner"
+        :class="{
+          'has-select': currentSelectedLabel,
+        }"
         @input="keywordsChange"
         @focus="keywords = ''"
         @blur="isFoucs = false"
@@ -106,9 +109,10 @@ const handleChange = (item: TypeOptionItem) => {
 watch(
   () => props.modelValue,
   (newValue) => {
-    currentSelectedLabel.value = props.option?.find(
+    const currentSelected = props.option?.find(
       (item) => item.value === newValue
-    )!.label;
+    );
+    currentSelectedLabel.value = currentSelected ? currentSelected.label : "";
   },
   {
     immediate: true,

@@ -741,7 +741,7 @@ const ruleFormRef = ref();
 
 const state = reactive({
   inputValue1: "",
-  selectValue1: "2",
+  selectValue1: "",
   selectValue2: "1",
   showDialog1: false,
   showDialog2: false,
@@ -759,7 +759,7 @@ const state = reactive({
   scrollNoMore: false,
   ruleForm: {
     name: "",
-    region: "1",
+    region: "",
   },
 });
 

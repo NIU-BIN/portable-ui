@@ -32,13 +32,14 @@ const accordion = inject<ComputedRef<boolean[]>>("accordion");
 const show = computed(() => opened?.value.includes(props.name));
 
 const handleClick = () => {
-  // show.value = !show.value;
   const oldSelect = JSON.parse(JSON.stringify(opened?.value));
   let newSelected = oldSelect.includes(props.name)
     ? oldSelect.filter((item: any) => item !== props.name)
     : [...oldSelect, props.name];
+  console.log(newSelected, newSelected[0] === oldSelect[0]);
   if (accordion?.value) {
     newSelected = [props.name];
+    newSelected = newSelected[0] === oldSelect[0] ? [] : newSelected;
   }
   change && change(newSelected);
 };

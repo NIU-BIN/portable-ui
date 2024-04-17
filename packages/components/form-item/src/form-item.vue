@@ -39,7 +39,7 @@ const errorCollection = inject("error-collection") as ComputedRef<
 >;
 
 const isRequired = computed(() => {
-  const currentRules = props.prop && rules[props.prop];
+  const currentRules = props.prop && rules && rules[props.prop];
   if (currentRules) {
     return currentRules.some((v: any) => v.required);
   } else {

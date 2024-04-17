@@ -1,7 +1,6 @@
 <script setup>
 import demo1 from './demo1.vue'
-// import demo2 from './demo2.vue'
-// import demo3 from './demo3.vue'
+import demo2 from './demo2.vue'
 </script>
 
 # Form 表单
@@ -16,4 +15,14 @@ import demo1 from './demo1.vue'
 
 <preview comp-name="form" demo-name="demo1">
   <demo1/>
+</preview>
+
+## 表单校验
+
+`Form` 组件允许你验证用户的输入是否符合规范，来帮助你找到和纠正错误。
+
+`Form` 组件提供了表单验证的功能，只需为 `rules` 属性传入约定的验证规则。更多高级用法可参考 [async-validator](https://github.com/yiminghe/async-validator)。
+
+<preview comp-name="form" demo-name="demo2">
+  <demo2/>
 </preview>

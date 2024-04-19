@@ -6,9 +6,9 @@ export default {
   // titleTemplate: ":title - Portable UI",
   description: "一个Vue3 UI框架",
   lastUpdated: true,
-  head: [["link", { rel: "icon", href: "http://niubin.site/logo.jpg" }]],
+  head: [["link", { rel: "icon", href: "/logo2.png" }]],
   themeConfig: {
-    logo: "http://niubin.site/logo.jpg",
+    logo: "/logo2.png",
     nav: [
       { text: "指南", link: "/guide/install" },
       { text: "组件", link: "/components/button/" },

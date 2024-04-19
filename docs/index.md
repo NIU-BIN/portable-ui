@@ -2,11 +2,11 @@
 layout: home
 
 hero:
-  name: Portable UI
+  name: Portable
   text: 一个Vue3组件库
   tagline: 基于Vue3,简洁高效的组件库
   image:
-    src: http://niubin.site/logo.jpg
+    src: logo.png
     alt: portable-ui
   actions:
     - theme: brand

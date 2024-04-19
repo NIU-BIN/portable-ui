@@ -6,7 +6,7 @@
       <p-step title="第三步" description="选择我的头像" />
       <p-step title="第四步" description="转款1000万" />
     </p-steps>
-
+    <br />
     <p-button type="primary" size="mini" @click="nextStep">下一步</p-button>
   </div>
 </template>

@@ -1,7 +1,7 @@
 <script setup>
 import demo1 from './demo1.vue'
 import demo2 from './demo2.vue'
-// import demo3 from './demo3.vue'
+import demo3 from './demo3.vue'
 </script>
 
 # Steps 步骤条
@@ -16,12 +16,22 @@ import demo2 from './demo2.vue'
   <demo1/>
 </preview>
 
+## 居中的步骤条
+
+标题和描述可以居中。
+
+设置 `align` 属性为 `center` 即可.
+
+<preview comp-name="steps" demo-name="demo2">
+  <demo2/>
+</preview>
+
 ## 带图标的步骤条
 
 可以在步骤栏中使用各种自定义图标。
 
 通过 icon 属性来设置图标， 图标的类型可以参考 Icon 组件的文档。、
 
-<preview comp-name="steps" demo-name="demo2">
-  <demo2/>
+<preview comp-name="steps" demo-name="demo3">
+  <demo3/>
 </preview>

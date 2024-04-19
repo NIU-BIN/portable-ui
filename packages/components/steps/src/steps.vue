@@ -1,5 +1,5 @@
 <template>
-  <div class="p-steps">
+  <div class="p-steps" :class="{ 'p-steps__align-center': align === 'center' }">
     <slot />
   </div>
 </template>
@@ -28,6 +28,7 @@ const active = computed(() => props.active);
 
 provide("childrenUid", childrenUid);
 provide("active", active);
+provide("align", props.align);
 
 onMounted(() => {
   getChildrenUid(instance as ComponentInternalInstance);

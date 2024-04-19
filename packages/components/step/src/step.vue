@@ -9,7 +9,10 @@
   >
     <div class="p-step__container">
       <div class="p-step__head">
-        <span class="p-step__icon p-icon" :class="`${icon && 'icon-' + icon}`">
+        <span
+          class="p-step__icon p-icon"
+          :class="`${icon ? 'icon-' + icon : ''}`"
+        >
           {{ icon ? "" : (currentIndex || 0) + 1 }}
         </span>
         <div
@@ -45,6 +48,7 @@ defineProps(Props);
 const instance = getCurrentInstance();
 const childrenUid: any = inject("childrenUid");
 const active = inject("active");
+const align = inject("align");
 
 const currentIndex = computed(() => {
   let index: null | number = null;

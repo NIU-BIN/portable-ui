@@ -9,11 +9,12 @@
   display: flex;
   align-items: center;
   .p-step__icon {
-    display: block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: 28px;
     height: 28px;
     text-align: center;
-    line-height: 28px;
     border: 2px solid @default;
     border-radius: 50%;
     color: @default;
@@ -28,8 +29,8 @@
 
 .p-step__content {
   margin-top: 10px;
-  transform: translateX(calc(-50% + 14px));
-  text-align: center;
+  // transform: translateX(calc(-50% + 14px));
+  // text-align: center;
   .p-step__title {
     font-size: 14px;
     color: #bbb;
@@ -46,10 +47,10 @@
   transform: translate(0);
 }
 
-.isLastStep {
-  text-align: right;
-  // transform: translateX(calc(-100% + 28px));
-}
+// .isLastStep {
+//   text-align: right;
+//   // transform: translateX(calc(-100% + 28px));
+// }
 
 .is_complete {
   .p-step__icon {
@@ -74,14 +75,24 @@
   }
 }
 
-.is_last_step {
-  position: absolute;
-  flex: none;
-  right: 0;
+// .is_last_step {
+//   position: absolute;
+//   flex: none;
+//   right: 0;
+//   .p-step__head {
+//     flex-direction: row-reverse;
+//   }
+//   .p-step__content {
+//     transform: translate(0);
+//   }
+// }
+
+.p-steps__align-center {
   .p-step__head {
-    flex-direction: row-reverse;
+    transform: translateX(calc(50% - 14px));
   }
   .p-step__content {
-    transform: translate(0);
+    text-align: center;
+    // transform: translateX(calc(-100% + 28px));
   }
 }

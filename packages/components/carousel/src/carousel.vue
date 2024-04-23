@@ -7,7 +7,7 @@
 </template>
 
 <script setup lang="ts">
-import { onUnmounted, onMounted, ref } from "vue";
+import { onUnmounted, onMounted, ref, getCurrentInstance, provide } from "vue";
 import { Props } from "./carousel";
 
 defineOptions({
@@ -20,17 +20,23 @@ const slotRef = ref<HTMLElement>();
 const carouselWidth = ref(0);
 const vnodeUidlist = ref<number[]>([]);
 const clock = ref();
+const instance = getCurrentInstance();
+
+provide("currentIndex", currentIndex);
+provide("direction", props.direction);
 
 const getCarouselItemList = () => {
   carouselWidth.value = slotRef.value?.offsetWidth || 0;
-  carouselList.value = (slotRef as any)._value.children;
-  for (let item of (slotRef as any)._value.children) {
-    vnodeUidlist.value.push(item.__vnode.ctx.uid);
-    // console.log("item.__vnode.ctx.uid: ", item.__vnode.ctx.uid);
-  }
+  const children = instance?.subTree.children;
+  const uid =
+    children &&
+    (children as any)[0].children[0].children
+      .filter((item: any) => item.component)
+      .map((item: any) => item.component.uid);
+  vnodeUidlist.value = uid;
   currentIndex.value = vnodeUidlist.value[0];
+  console.log("uid: ", uid);
 };
-
 const autoPlay = () => {
   clock.value = setInterval(() => {
     const index = vnodeUidlist.value.findIndex(
@@ -44,17 +50,13 @@ const autoPlay = () => {
 };
 
 onMounted(() => {
+  // TODO：由于目前uid只能在mounted之后才能获取到，所以会出现第一个carousel-item也会触发进入动画
   getCarouselItemList();
   props.autoplay && autoPlay();
 });
 
 onUnmounted(() => {
   clock.value && clearInterval(clock.value);
-});
-
-defineExpose({
-  currentIndex,
-  direction: props.direction,
 });
 </script>
 

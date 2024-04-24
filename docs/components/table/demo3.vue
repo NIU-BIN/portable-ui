@@ -11,67 +11,49 @@ const column = [
   {
     key: "customerName",
     label: "企业名称",
-    // width: "140",
+    width: "150",
   },
   {
     key: "powerGridName",
     label: "电调区域",
-    width: "140",
+    width: "120",
   },
   {
-    key: "districtName",
+    key: "address",
     label: "行政区域",
-    width: "160",
-  },
-  {
-    key: "industryType",
-    label: "行业分类",
-  },
-  {
-    key: "startTime",
-    label: "开始日期",
-    width: "140",
-  },
-  {
-    key: "endTime",
-    label: "结束日期",
-    width: "140",
-  },
-  {
-    key: "contractStatus",
-    label: "合同状态",
-    width: "140",
   },
 ];
 
 const tableData = [
   {
-    customerName: "宁夏区域",
-    powerGridName: "111",
-    districtName: "222",
-    industryType: "333",
-    startTime: "2023-05-06",
+    customerName: "XXX化工有限公司",
+    powerGridName: "宁夏区域",
+    address: "No. 189, Grove St, Los Angeles",
   },
   {
-    customerName: "宁夏区域",
-    powerGridName: "111",
-    districtName: "222",
-    industryType: "333",
-    startTime: "2023-05-06",
+    customerName: "XXX化工有限公司",
+    powerGridName: "宁夏区域",
+    address: "No. 189, Grove St, Los Angeles",
   },
   {
-    customerName: "宁夏区域",
-    powerGridName: "111",
-    districtName: "222",
-    industryType: "333",
-    startTime: "2023-05-06",
+    customerName: "XXX化工有限公司",
+    powerGridName: "宁夏区域",
+    address: "No. 189, Grove St, Los Angeles",
   },
   {
-    customerName: "宁夏区域",
-    powerGridName: "111",
-    districtName: "222",
-    industryType: "333",
-    startTime: "2023-05-06",
+    customerName: "XXX化工有限公司",
+    powerGridName: "宁夏区域",
+    address: "No. 189, Grove St, Los Angeles",
+  },
+  {
+    customerName: "XXX化工有限公司",
+    powerGridName: "宁夏区域",
+    address: "No. 189, Grove St, Los Angeles",
+  },
+  {
+    customerName: "XXX化工有限公司",
+    powerGridName: "宁夏区域",
+    address: "No. 189, Grove St, Los Angeles",
   },
 ];
 </script>

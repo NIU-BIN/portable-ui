@@ -1,6 +1,9 @@
 @border: #ebeef5;
 
-.p-table {
+.p-table table {
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
 }
 .p-table__header,
 .p-table__body {
@@ -22,6 +25,21 @@
     padding: 8px 0;
     flex: 1;
     line-height: 23px;
+  }
+  tr {
+    background-color: #fff;
+    border: none;
+  }
+  tr:nth-child(2n) {
+    background-color: #fff;
+  }
+  th {
+    border: none;
+    color: #909399;
+    background-color: #fff;
+  }
+  td {
+    border: none;
   }
 
   tbody {

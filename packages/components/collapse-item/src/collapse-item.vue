@@ -36,7 +36,6 @@ const handleClick = () => {
   let newSelected = oldSelect.includes(props.name)
     ? oldSelect.filter((item: any) => item !== props.name)
     : [...oldSelect, props.name];
-  console.log(newSelected, newSelected[0] === oldSelect[0]);
   if (accordion?.value) {
     newSelected = [props.name];
     newSelected = newSelected[0] === oldSelect[0] ? [] : newSelected;

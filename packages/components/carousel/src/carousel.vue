@@ -35,7 +35,6 @@ const getCarouselItemList = () => {
       .map((item: any) => item.component.uid);
   vnodeUidlist.value = uid;
   currentIndex.value = vnodeUidlist.value[0];
-  console.log("uid: ", uid);
 };
 const autoPlay = () => {
   clock.value = setInterval(() => {

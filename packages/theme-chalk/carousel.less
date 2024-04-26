@@ -6,4 +6,36 @@
   .p-carousel_container {
     width: 100%;
   }
+  .p-carousel__arrow {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 2;
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    background-color: rgba(31, 45, 61, 0.11);
+    color: #fff;
+    cursor: pointer;
+    i {
+      font-size: 12px;
+    }
+    &:hover {
+      background-color: rgba(31, 45, 61, 0.23);
+    }
+  }
+  .p-carousel__arrow--left {
+    left: 20px;
+  }
+  .p-carousel__arrow--right {
+    right: 20px;
+  }
+  &:hover {
+    .p-carousel__arrow {
+      display: flex;
+    }
+  }
 }

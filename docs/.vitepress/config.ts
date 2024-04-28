@@ -55,10 +55,10 @@ export default {
             { text: "Collapse 折叠面板", link: "/components/collapse/" },
             { text: "Tree 树形控件", link: "/components/tree/" },
             { text: "Table 表格", link: "/components/table/" },
-            {
-              text: "Infinite Scroll 无限滚动",
-              link: "/components/infinite-scroll/",
-            },
+            // {
+            //   text: "Infinite Scroll 无限滚动",
+            //   link: "/components/infinite-scroll/",
+            // },
           ],
         },
         {

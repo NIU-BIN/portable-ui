@@ -1,6 +1,7 @@
 import type { ExtractPropTypes } from "vue";
 
 const DIRECTION = ["pre", "next"];
+const ARROW = ["always", "hover", "never"];
 
 export const Props = {
   height: {
@@ -23,6 +24,13 @@ export const Props = {
       return DIRECTION.includes(value);
     },
     default: "next",
+  },
+  arrow: {
+    type: String,
+    validator(value: string) {
+      return ARROW.includes(value);
+    },
+    default: "hover",
   },
 };
 

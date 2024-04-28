@@ -1,16 +1,43 @@
 <template>
-  <div class="p-carousel">
-    <div class="p-carousel_container" ref="slotRef">
+  <div
+    class="p-carousel"
+    ref="carouselRef"
+    @mouseenter.self="handleMouseEnter"
+    @mouseleave.self="handleMouseOut"
+  >
+    <div class="p-carousel_container">
       <slot />
     </div>
-    <transition name="fade-to-right">
-      <div class="p-carousel__arrow p-carousel__arrow--left">
+    <div
+      class="p-carousel__arrow p-carousel__arrow--left"
+      :style="{
+        display: showArrow,
+      }"
+      v-show="arrow === 'always' || isEnter"
+      @click="goBackward"
+    >
       <i class="p-icon icon-arrow-left-bold"></i>
     </div>
-    </transition name="fade-to-light">
-    <div class="p-carousel__arrow p-carousel__arrow--right">
+    <div
+      class="p-carousel__arrow p-carousel__arrow--right"
+      :style="{
+        display: showArrow,
+      }"
+      v-show="arrow === 'always' || isEnter"
+      @click="goForward"
+    >
       <i class="p-icon icon-arrow-right-bold"></i>
     </div>
+
+    <ul class="p-carousel__dot_list">
+      <li
+        v-for="uuid in vnodeUidlist"
+        :key="uuid"
+        class="p-carousel_dot"
+        :class="{ 'p-carousel_dot_active': uuid === currentIndex }"
+        @click="goTo(uuid)"
+      ></li>
+    </ul>
   </div>
 </template>
 
@@ -24,6 +51,8 @@ import {
   useSlots,
   VNode,
   nextTick,
+  watch,
+  computed,
 } from "vue";
 import { Props } from "./carousel";
 
@@ -35,10 +64,10 @@ const currentIndex = ref(0);
 const slotRef = ref<HTMLElement>();
 const carouselWidth = ref(0);
 const vnodeUidlist = ref<number[]>([]);
-const clock = ref();
+const clock = ref<NodeJS.Timeout | null>(null);
 const instance = getCurrentInstance();
 const transitionName = ref("");
-const showArrow = ref(false);
+const isEnter = ref(false);
 
 provide("currentIndex", currentIndex);
 provide("direction", transitionName);
@@ -53,20 +82,75 @@ const getCarouselItemList = () => {
       .map((item: VNode) => item.component?.uid);
   vnodeUidlist.value = uid;
   currentIndex.value = vnodeUidlist.value[0];
-  nextTick(() => {
-    transitionName.value = props.direction;
-  });
 };
 const autoPlay = () => {
-  clock.value = setInterval(() => {
-    const index = vnodeUidlist.value.findIndex(
-      (item) => item === currentIndex.value
+  if (!clock.value) {
+    nextTick(() => {
+      transitionName.value = props.direction;
+    });
+    clock.value = setInterval(
+      () => start(props.direction),
+      props.interval || 3000
     );
+  }
+};
+
+const showArrow = computed(() => {
+  let display = "";
+  if (props.arrow === "always") {
+    display = "flex";
+  } else if (props.arrow === "never") {
+    display = "none";
+  } else if (isEnter.value) {
+    display = "flex";
+  } else {
+    display = "none";
+  }
+  return display;
+});
+
+const start = (direction: string) => {
+  const index = vnodeUidlist.value.findIndex(
+    (item) => item === currentIndex.value
+  );
+  if (direction === "next") {
     currentIndex.value =
       index === vnodeUidlist.value.length - 1
         ? vnodeUidlist.value[0]
         : vnodeUidlist.value[index + 1];
-  }, props.interval || 3000);
+  } else {
+    currentIndex.value =
+      index === 0
+        ? vnodeUidlist.value[vnodeUidlist.value.length - 1]
+        : vnodeUidlist.value[index - 1];
+  }
+};
+
+const goTo = (uuid: number) => {
+  currentIndex.value = uuid;
+};
+
+const handleMouseEnter = () => {
+  isEnter.value = true;
+  if (clock.value) {
+    clearInterval(clock.value);
+    clock.value = null;
+  }
+};
+
+const handleMouseOut = () => {
+  isEnter.value = false;
+  props.autoplay && autoPlay();
+};
+
+const goForward = () => {
+  transitionName.value = "next";
+  start("next");
+};
+
+const goBackward = () => {
+  transitionName.value = "pre";
+  start("pre");
 };
 
 onMounted(() => {

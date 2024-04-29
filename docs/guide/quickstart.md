@@ -8,14 +8,14 @@
 
 如果你对打包后的文件大小不是很在乎，那么使用完整导入会更方便。
 
-```
-// main.ts
-import { createApp } from 'vue';
-import App from './App.vue';
-import PortableUI from 'portable-ui';
-import 'portable-ui/es/style.css';
+```js
+import { createApp } from "vue";
+import App from "./App.vue";
+import PortableUI from "portable-ui";
+import "portable-ui/theme-chalk/index.less";
+
 const app = createApp(App);
-app.use(PortableUI).mount('#app');
+app.use(PortableUI).mount("#app");
 ```
 
 # 开始使用

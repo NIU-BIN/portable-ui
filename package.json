@@ -8,7 +8,9 @@
     "docs:dev": "vitepress dev docs",
     "docs:build": "vitepress build docs",
     "docs:serve": "vitepress serve docs",
-    "docs:preview": "vitepress preview docs --port 9999"
+    "docs:preview": "vitepress preview docs --port 9999",
+    "build": "gulp -f build/gulpfile.ts",
+    "comp:build": "vite build --config build/build.ts"
   },
   "keywords": [],
   "author": "",
@@ -26,7 +28,19 @@
     "vue": "^3.4.21"
   },
   "devDependencies": {
+    "@types/gulp": "^4.0.17",
+    "@types/gulp-autoprefixer": "^0.0.37",
+    "@types/gulp-clean-css": "^4.3.4",
+    "@types/gulp-less": "^0.0.36",
+    "@types/less": "^3.0.6",
     "@types/node": "^20.12.2",
+    "gulp": "^5.0.0",
+    "gulp-autoprefixer": "^8.0.0",
+    "gulp-clean-css": "^4.3.0",
+    "gulp-less": "^5.0.0",
+    "gulp-typescript": "6.0.0-alpha.1",
+    "sucrase": "^3.35.0",
+    "vite-plugin-dts": "^3.9.0",
     "vitepress": "1.0.0-rc.45"
   }
 }

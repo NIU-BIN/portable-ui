@@ -50,7 +50,7 @@ const tooltipRef = ref<HTMLElement>();
 const arrowDirection = ref<ArrowDirection>("bottom");
 const arrowPosition = ref<ArrowPosition>("center");
 const TOOLTIP_GAP = 7;
-let clock: number;
+let clock: NodeJS.Timeout;
 
 watch(
   () => props.placement,
@@ -135,10 +135,10 @@ const getPosition = (
       left = x + width - W;
       top = y + height + TOOLTIP_GAP;
       break;
-    case "left":
-      left = x - W - TOOLTIP_GAP;
-      top = y;
-      break;
+    // case "left":
+    //   left = x - W - TOOLTIP_GAP;
+    //   top = y;
+    //   break;
     case "left":
       left = x - W - TOOLTIP_GAP;
       top = y - (H / 2 - height / 2);

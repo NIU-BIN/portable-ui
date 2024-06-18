@@ -1,6 +1,6 @@
 import { App } from "vue";
 import * as components from "./components";
-import type { Plugin } from "vue";
+import type { Component, Plugin } from "vue";
 
 const FUNCTION_COMP = ["PMessage"];
 const DIRECTIVE = ["PInfiniteSrcoll"];
@@ -15,7 +15,7 @@ const install = async (app: App) => {
   createPopperContainer();
   Object.entries(components).forEach(([key, value]) => {
     if (!FUNCTION_COMP.includes(key) && !DIRECTIVE.includes(key)) {
-      app.component(key, value);
+      app.component(key, value as Component);
     }
     if (DIRECTIVE.includes(key)) {
       app.use(value as Plugin);

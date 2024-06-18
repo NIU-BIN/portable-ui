@@ -43,4 +43,3 @@ const handleClick = () => {
   change && change(newSelected);
 };
 </script>
-./collapse-item.js

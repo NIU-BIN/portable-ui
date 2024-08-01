@@ -14,7 +14,7 @@
   },
   "keywords": [],
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
     "@highlightjs/vue-plugin": "^2.1.0",
     "@portable-ui/components": "workspace:^",

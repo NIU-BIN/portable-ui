@@ -11,7 +11,7 @@
     <a href="#">
         <img src="https://img.shields.io/github/license/NIU-BIN/portable-ui">
     </a>
-    <img src="https://github.com/NIU-BIN/portable-ui//blob/main/cover.png"/>
+    <img src="https://github.com/NIU-BIN/portable-ui/blob/main/cover.png"/>
 </p>
 
 - ✨ Vue 3 Composition API
